@@ -2,6 +2,8 @@
 
 This repository contains the code for a line following robot designed as a final project for UCF's EEL4660 Robotic Systems.
 
+For more information, see the brief [writeup submitted with our project](https://github.com/c-bujari/MBotFollower/blob/main/project-writeup.pdf) or [demo video](https://youtu.be/2XrjXeWvylg).
+
 The robot is built from a variety of different parts (including the chassis and motors from an old [MBot](https://www.makeblock.com/mbot/) kit, hence the name). The robot is controlled by a Raspberry Pi 4, which uses CV2 to analyze video feed from its camera, determining the required motor output to remain on-track.
 
-For more information, see the brief [writeup submitted with our project](https://github.com/c-bujari/MBotFollower/blob/main/project-writeup.pdf) or [demo video](https://youtu.be/2XrjXeWvylg).
+This code should, in theory, work with any Raspberry Pi and camera with Python 3 and CV2 installed. You may need to do a bit of extra work to install CV2, as the default packages provided in the Raspbian repos throw errors and do not run; [this](https://www.pyimagesearch.com/2019/09/16/install-opencv-4-on-raspberry-pi-4-and-raspbian-buster/) is one of the guides I used, (skipped setting up a virtualenv since the system would only be used for this project).
