@@ -1,0 +1,1 @@
+This directory holds some of the files made while testing out individual parts of the robot's functionality. [linefollower.py](https://github.com/c-bujari/MBotFollower/blob/main/linefollow.py) in the main directory is the finished product, combining any functionality that may have been tested here.
