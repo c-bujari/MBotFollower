@@ -2,24 +2,24 @@ import RPi.GPIO as GPIO
 import cv2
 from time import sleep
 
+# -- Raspberry Pi GPIO Setup -- #
 GPIO.setmode(GPIO.BOARD)
-
+# Motor 1 -- (Right Motor)
 Motor1A = 16
 Motor1B = 18
 Motor1E = 22
-
-Motor2A = 19
-Motor2B = 21
-Motor2E = 23
-
 GPIO.setup(Motor1A,GPIO.OUT)
 GPIO.setup(Motor1B,GPIO.OUT)
 GPIO.setup(Motor1E,GPIO.OUT)
-
+# Motor 2 -- (Left Motor)
+Motor2A = 19
+Motor2B = 21
+Motor2E = 23
 GPIO.setup(Motor2A,GPIO.OUT)
 GPIO.setup(Motor2B,GPIO.OUT)
 GPIO.setup(Motor2E,GPIO.OUT)
 
+# Video capture setup (using default device camera, usually /dev/video0)
 video_capture = cv2.VideoCapture(-1)
 video_capture.set(3, 160)
 video_capture.set(4, 120)
@@ -98,10 +98,11 @@ try:
         
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-        
+            
 except ZeroDivisionError:
-    print ("shitting myself")
+    print ("Error - did the camera disconnect?")
 
+# Stop all output, free GPIO connections
 print ("Stopping all")
 GPIO.output(Motor1E,GPIO.LOW)
 GPIO.output(Motor2E,GPIO.LOW)
